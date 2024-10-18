@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <!-- icon fonts css -->
+    <link rel="stylesheet" type="text/css" href="iconstyle.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <title>Alphatwelve Landing Page</title>
+  </head>
+  <body>
+    <div class="sidenav">
+      <section class="sect-1">
+        <div class="logo-wrapper">
+          <div class="collapsed-logo"></div>
+          <div class="logo">
+            <a href="#">
+              <h1>Full Logo</h1>
+            </a>
+          </div>
+        </div>
+        <div class="sect-1-wrapper">
+          <ul>
+            <a href="#">
+              <li>
+                <img src="assets/home.png" alt="home" />
+                <p>Home</p>
+              </li> </a
+            ><a href="#">
+              <li>
+                <img src="assets/solar_calendar-linear.png" alt="calender" />
+                <p>Events</p>
+              </li> </a
+            ><a href="#">
+              <li>
+                <img
+                  src="assets/solar_user-speak-rounded-linear.png"
+                  alt="speaker"
+                />
+                <p>Speakers</p>
+              </li> </a
+            ><a href="#">
+              <li>
+                <img src="assets/solar_document-linear.png" alt="report" />
+                <p>Reports</p>
+              </li>
+            </a>
+          </ul>
+        </div>
+      </section>
+      <section class="sect-2">
+        <div class="sect-2-wrapper">
+          <ul>
+            <a href="#">
+              <li>
+                <img src="assets/bell.png" alt="notify" />
+                <p>Notifications</p>
+                <div class="notify"><h4>3</h4></div>
+              </li>
+            </a>
+            <a href="#">
+              <li>
+                <img src="assets/double-chat-bubble.png" alt="messages" />
+                <p>Messages</p>
+              </li> </a
+            ><a href="#">
+              <li>
+                <img src="assets/settings-2.png" alt="settings" />
+                <p>Settings</p>
+              </li>
+            </a>
+            <button id="collapse">
+              <!-- collapse icon -->
+              <img
+                src="assets/double-chevron-right.png"
+                alt="arrow-right"
+                class="arrow-collapsed"
+              />
+              <!-- expanded icon -->
+              <img
+                src="assets/double-chevron-left.png"
+                alt="arrow-left"
+                class="arrow-expanded"
+              />
+              <p>Collapse</p>
+            </button>
+          </ul>
+        </div>
+      </section>
+      <section class="sect-3">
+        <div class="toggle-container" id="toggle-btn-1">
+          <label class="toggle">
+            <input type="checkbox" id="dark-mode-toggle" />
+            <span class="slider round"></span>
+          </label>
+          <p>Dark mode</p>
+        </div>
+        <div class="user">
+          <div class="avatar">
+            <img src="assets/Avatar.png" alt="avatar" />
+          </div>
+
+          <div class="user-detail">
+            <p>Rudra Devi</p>
+            <p id="u1">rudra.devi@gmail.com</p>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="main-page">
+      <div class="main-header">
+        <h1>Welcome! here’s your summary</h1>
+        <div class="header-card-container">
+          <div class="header-card" id="card-1">
+            <div class="layer-1">
+              <p>Total Events</p>
+              <ion-icon name="information-circle-outline"></ion-icon>
+            </div>
+            <div class="layer-2">
+              <h3>100,000</h3>
+              <span class="material-symbols-outlined"> north_east </span>
+              <p>+5.0%</p>
+            </div>
+          </div>
+          <div class="header-card" id="card-2">
+            <div class="layer-1">
+              <p>Active Speakers</p>
+              <ion-icon name="information-circle-outline"></ion-icon>
+            </div>
+            <div class="layer-2">
+              <h3>25</h3>
+              <span class="material-symbols-outlined"> south_east </span>
+              <p>-5.0%</p>
+            </div>
+          </div>
+          <div class="header-card" id="card-3">
+            <div class="layer-1">
+              <p>Total Registrations</p>
+              <ion-icon name="information-circle-outline"></ion-icon>
+            </div>
+            <div class="layer-2">
+              <h3>300</h3>
+              <span class="material-symbols-outlined"> north_east </span>
+              <p>+5.0%</p>
+            </div>
+          </div>
+          <div class="header-card" id="card-4">
+            <div class="layer-1">
+              <p>Total Revenue</p>
+              <ion-icon name="information-circle-outline"></ion-icon>
+            </div>
+            <div class="layer-2">
+              <h3>$500,000</h3>
+              <span class="material-symbols-outlined"> north_east </span>
+              <p>+5.0%</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main-section-1">
+        <h3 style="margin-bottom: 12px">Event Registrations per month</h3>
+        <div class="main-section-1-card-container">
+          <div class="charts">
+            <canvas
+              id="barChart"
+              width="474"
+              height="240"
+              class="barChart"
+            ></canvas>
+          </div>
+          <div class="carousel-container">
+            <div class="carousel">
+              <div class="carosuel-slider">
+                <section id="carousel-card-1">
+                  <div class="carousel-text">
+                    <h3>Latest News & Updates</h3>
+                    <p>
+                      Turpis interdum nunc varius ornare dignissim pretium.
+                      Massa ornare quis aliquet sed vitae. Sed velit nisi,
+                      fermentum erat. Fringilla purus, erat fringilla tincidunt
+                      quisque non. Pellentesque in ut tellus.
+                    </p>
+                  </div>
+                </section>
+                <section id="carousel-card-2">
+                  <div class="carousel-text">
+                    <h3>Latest News & Updates</h3>
+                    <p>
+                      Turpis interdum nunc varius ornare dignissim pretium.
+                      Massa ornare quis aliquet sed vitae. Sed velit nisi,
+                      fermentum erat. Fringilla purus, erat fringilla tincidunt
+                      quisque non. Pellentesque in ut tellus.
+                    </p>
+                  </div>
+                </section>
+                <section id="carousel-card-3">
+                  <div class="carousel-text">
+                    <h3>Latest News & Updates</h3>
+                    <p>
+                      Turpis interdum nunc varius ornare dignissim pretium.
+                      Massa ornare quis aliquet sed vitae. Sed velit nisi,
+                      fermentum erat. Fringilla purus, erat fringilla tincidunt
+                      quisque non. Pellentesque in ut tellus.
+                    </p>
+                  </div>
+                </section>
+              </div>
+              <div class="carousel-controls">
+                <span class="carrow-left">
+                  <ion-icon name="chevron-back-outline"></ion-icon>
+                </span>
+                <span class="carrow-right">
+                  <ion-icon name="chevron-forward-outline"></ion-icon
+                ></span>
+                <ul class="carousel-dashes">
+                  <li class="selected"></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      //bar chart
+      const ctx = document.getElementById("barChart").getContext("2d");
+
+      const updateChartColors = (isDarkMode) => {
+        return {
+          backgroundColor: isDarkMode
+            ? "rgba(133, 118, 255, 0.5)"
+            : "rgba(133, 118, 255, 1)",
+          borderColor: isDarkMode
+            ? "rgba(133, 118, 255, 0.5)"
+            : "rgba(133, 118, 255, 1)",
+        };
+      };
+
+      new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: [
+            "Jan",
+            "Febr",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+          ],
+          datasets: [
+            {
+              label: "# of Votes",
+              data: [
+                620, 980, 780, 410, 1000, 580, 820, 380, 820, 620, 980, 580,
+              ],
+              borderWidth: 1,
+              backgroundColor: ["rgba(133, 118, 255, 1)"],
+              borderColor: ["rgba(133, 118, 255, 1)"],
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+              ticks: {
+                stepSize: 200, // Set y-axis increments to 200
+              },
+              grid: {
+                color: "transparent", // Change y-axis grid line color
+                borderDash: [5, 5], // Make grid lines dashed (5px dash, 5px space)
+                lineWidth: 2, // Width of the grid lines
+                drawBorder: false, // Option to remove the axis border line
+              },
+            },
+            x: {
+              grid: {
+                color: "transparent", // Change x-axis grid line color
+                borderDash: [5, 5], // Make grid lines dashed (5px dash, 5px space)
+                lineWidth: 2, // Width of the grid lines
+                drawBorder: true, // Option to remove the axis border line
+              },
+            },
+          },
+        },
+      });
+    </script>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
