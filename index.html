@@ -19,7 +19,20 @@
     <title>Alphatwelve Landing Page</title>
   </head>
   <body>
-    <div class="sidenav">
+    <div class="mobile-header">
+      <div class="logo">
+        <a href="#">
+          <h1>Full Logo</h1>
+        </a>
+      </div>
+      <div class="hamburger-icon" id="hamburger-menu">
+        <img src="./assets/hamburger-icon.svg" alt="menu" class="menu-icon" />
+        <span class="close-icon" style="display: none; font-size: 36px">
+          <ion-icon name="close-circle-outline"></ion-icon
+        ></span>
+      </div>
+    </div>
+    <div class="sidenav" id="sidenav">
       <section class="sect-1">
         <div class="logo-wrapper">
           <div class="collapsed-logo"></div>
@@ -171,12 +184,7 @@
         <h3 style="margin-bottom: 12px">Event Registrations per month</h3>
         <div class="main-section-1-card-container">
           <div class="charts">
-            <canvas
-              id="barChart"
-              width="474"
-              height="240"
-              class="barChart"
-            ></canvas>
+            <canvas id="barChart" class="barChart"></canvas>
           </div>
           <div class="carousel-container">
             <div class="carousel">
@@ -233,7 +241,7 @@
         </div>
       </div>
       <div class="main-section-2">
-        <h3 style="margin-bottom: 6px; margin-top: 28px">Events History</h3>
+        <h3 class="main-section-2-text" style="margin-bottom: 6px; margin-top: 28px">Events History</h3>
         <section class="main-section-2-layer-1">
           <div class="left-side">
             <div class="search-container">
@@ -257,7 +265,7 @@
               <span>Name</span>
               <ion-icon name="chevron-down-outline"></ion-icon>
             </div>
-            <h3>Displaying 100 results</h3>
+            <h3 class="left-side-text">Displaying 100 results</h3>
           </div>
           <div class="right-side">
             <span>Sort:</span>
@@ -275,7 +283,7 @@
           </div>
         </section>
         <section class="main-section-2-layer-2">
-          <table>
+          <table class="desktop-table" id="dataTable">
             <thead>
               <tr class="tabhead">
                 <th>Event Name</th>
@@ -284,8 +292,81 @@
                 <th>Status</th>
               </tr>
             </thead>
+            <tbody></tbody>
           </table>
+          <table class="mobile-table" id="mobileTable">
+            <thead>
+              <tr class="mobile-table-head">
+                <th>Event Name</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <section class="pagination-container">
+            <div class="pagination">
+              <button id="prevPage">
+                <ion-icon name="chevron-back-outline"></ion-icon>
+              </button>
+              <div id="pageNumbers"></div>
+              <button id="nextPage">
+                <ion-icon name="chevron-forward-outline"></ion-icon>
+              </button>
+            </div>
+            <div class="rows-display">
+              <label for="rowsPerPage">Show: </label>
+              <select id="rowsPerPage">
+                <option value="5">5 rows</option>
+                <option value="10" selected>10 rows</option>
+                <option value="15">15 rows</option>
+                <option value="20">20 rows</option>
+              </select>
+            </div>
+          </section>
+
+          <div id="eventModal" class="modal">
+            <div class="modal-content">
+              <span class="close-button"
+                ><ion-icon name="close-circle-outline"></ion-icon
+              ></span>
+              <div id="modalEventDetails">
+                <!-- Event details will be populated here -->
+              </div>
+
+              <div class="button-container">
+                <button class="edit-button">Edit</button>
+                <div class="button-container-2">
+                  <button class="delete-button">Delete</button>
+                  <button class="complete-button">Mark as Complete</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
+      </div>
+      <div class="main-section-3">
+        <div class="mobile-icon-wrapper">
+          <div class="home-icon">
+            <img src="assets/homeM.png" alt="home-icon">
+            <p>Home</p>
+          </div>
+          <div class="event-icon">
+            <img src="assets/solar_calendar-linearM.png" alt="event-icon">
+            <p>Event</p>
+          </div>
+          <div class="speaker-icon">
+            <img src="assets/solar_user-speak-rounded-linearM.png" alt="speaker-icon">
+            <p>Speaker</p>
+          </div>
+          <div class="report-icon">
+            <img src="assets/solar_document-linearM.png" alt="report-icon">
+            <p>Report</p>
+          </div>
+          <div class="profile-icon">
+            <img src="assets/user-circleM.png" alt="profile-icon">
+            <p>Profile</p>
+          </div>
+        </div>
       </div>
     </div>
     <script src="scripts.js"></script>
@@ -335,6 +416,7 @@
           ],
         },
         options: {
+          maintainAspectRatio: false,
           scales: {
             y: {
               beginAtZero: true,
