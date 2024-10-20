@@ -459,8 +459,8 @@ function displayMobileTable(rows, rowsPerPage, page) {
     rowElement.classList.add("accordion-header");
 
     rowElement.innerHTML = `
-    <div class="mobile-table-style">
-      <td>
+    <div>
+      <td class="mobile-table-style">
         <div class="mobile-event-header">
           <i class="chevron-icon right-chevron"><ion-icon name="chevron-forward-outline"></ion-icon></i>
           <span>${row.name}</span>
