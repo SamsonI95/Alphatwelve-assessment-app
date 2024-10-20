@@ -16,6 +16,13 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <title>Alphatwelve Landing Page</title>
   </head>
   <body>
@@ -76,7 +83,8 @@
           <ul>
             <a href="#">
               <li>
-                <img src="assets/bell.png" alt="notify" />
+                <img src="assets/bell.png" class="bell-icon" alt="notify" />
+                <img src="assets/Nav bell.png" class="bell-iconM" alt="notifyM" />
                 <p>Notifications</p>
                 <div class="notify"><h4>3</h4></div>
               </li>
@@ -241,7 +249,7 @@
         </div>
       </div>
       <div class="main-section-2">
-        <h3 class="main-section-2-text" style="margin-bottom: 6px; margin-top: 28px">Events History</h3>
+        <h3 class="main-section-2-text">Events History</h3>
         <section class="main-section-2-layer-1">
           <div class="left-side">
             <div class="search-container">
@@ -286,10 +294,30 @@
           <table class="desktop-table" id="dataTable">
             <thead>
               <tr class="tabhead">
-                <th>Event Name</th>
-                <th>Date</th>
-                <th>Speaker</th>
-                <th>Status</th>
+                <th>
+                  Event Name
+                  <i
+                    class="fa-solid fa-arrow-down-short-wide fa-flip-horizontally"
+                  ></i>
+                </th>
+                <th>
+                  Date
+                  <i
+                    class="fa-solid fa-arrow-down-short-wide fa-flip-horizontally"
+                  ></i>
+                </th>
+                <th>
+                  Speaker
+                  <i
+                    class="fa-solid fa-arrow-down-short-wide fa-flip-horizontally"
+                  ></i>
+                </th>
+                <th>
+                  Status
+                  <i
+                    class="fa-solid fa-arrow-down-short-wide fa-flip-horizontally"
+                  ></i>
+                </th>
               </tr>
             </thead>
             <tbody></tbody>
@@ -337,7 +365,7 @@
                 <button class="edit-button">Edit</button>
                 <div class="button-container-2">
                   <button class="delete-button">Delete</button>
-                  <button class="complete-button">Mark as Complete</button>
+                  <button class="complete-button">Mark as Completed</button>
                 </div>
               </div>
             </div>
@@ -346,24 +374,27 @@
       </div>
       <div class="main-section-3">
         <div class="mobile-icon-wrapper">
-          <div class="home-icon">
-            <img src="assets/homeM.png" alt="home-icon">
+          <div class="home-icon active">
+            <img src="assets/homeM.png" alt="home-icon" />
             <p>Home</p>
           </div>
           <div class="event-icon">
-            <img src="assets/solar_calendar-linearM.png" alt="event-icon">
+            <img src="assets/solar_calendar-linearM.png" alt="event-icon" />
             <p>Event</p>
           </div>
           <div class="speaker-icon">
-            <img src="assets/solar_user-speak-rounded-linearM.png" alt="speaker-icon">
+            <img
+              src="assets/solar_user-speak-rounded-linearM.png"
+              alt="speaker-icon"
+            />
             <p>Speaker</p>
           </div>
           <div class="report-icon">
-            <img src="assets/solar_document-linearM.png" alt="report-icon">
+            <img src="assets/solar_document-linearM.png" alt="report-icon" />
             <p>Report</p>
           </div>
           <div class="profile-icon">
-            <img src="assets/user-circleM.png" alt="profile-icon">
+            <img src="assets/user-circleM.png" alt="profile-icon" />
             <p>Profile</p>
           </div>
         </div>
@@ -372,9 +403,47 @@
     <script src="scripts.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-      //bar chart
+      // Get the context of the chart
       const ctx = document.getElementById("barChart").getContext("2d");
 
+      // Define full and abbreviated month labels
+      const fullMonthLabels = [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+      ];
+      const abbreviatedMonthLabels = [
+        "Ja",
+        "Fe",
+        "Ma",
+        "Ap",
+        "Ma",
+        "Ju",
+        "Ju",
+        "Au",
+        "Se",
+        "Oc",
+        "No",
+        "De",
+      ];
+
+      // Function to decide which labels to use based on screen width
+      function getMonthLabels() {
+        return window.innerWidth <= 768
+          ? abbreviatedMonthLabels
+          : fullMonthLabels;
+      }
+
+      // Function to update chart colors based on dark mode
       const updateChartColors = (isDarkMode) => {
         return {
           backgroundColor: isDarkMode
@@ -386,60 +455,71 @@
         };
       };
 
-      new Chart(ctx, {
-        type: "bar",
-        data: {
-          labels: [
-            "Jan",
-            "Febr",
-            "Mar",
-            "Apr",
-            "May",
-            "Jun",
-            "Jul",
-            "Aug",
-            "Sep",
-            "Oct",
-            "Nov",
-            "Dec",
-          ],
-          datasets: [
-            {
-              label: "# of Votes",
-              data: [
-                620, 980, 780, 410, 1000, 580, 820, 380, 820, 620, 980, 580,
-              ],
-              borderWidth: 1,
-              backgroundColor: ["rgba(133, 118, 255, 1)"],
-              borderColor: ["rgba(133, 118, 255, 1)"],
-            },
-          ],
-        },
-        options: {
-          maintainAspectRatio: false,
-          scales: {
-            y: {
-              beginAtZero: true,
-              ticks: {
-                stepSize: 200, // Set y-axis increments to 200
+      // Function to create the chart
+      let chartInstance; // Variable to store the chart instance
+
+      // Function to create or update the chart
+      function createOrUpdateChart() {
+        if (chartInstance) {
+          chartInstance.destroy(); // Destroy the old chart before creating a new one
+        }
+
+        chartInstance = new Chart(ctx, {
+          type: "bar",
+          data: {
+            labels: getMonthLabels(), // Dynamically set labels based on screen size
+            datasets: [
+              {
+                label: "# of Votes",
+                data: [
+                  620, 980, 780, 410, 1000, 580, 820, 380, 820, 620, 980, 580,
+                ],
+                borderWidth: 1,
+                backgroundColor: ["rgba(133, 118, 255, 1)"],
+                borderColor: ["rgba(133, 118, 255, 1)"],
               },
-              grid: {
-                color: "transparent", // Change y-axis grid line color
-                borderDash: [5, 5], // Make grid lines dashed (5px dash, 5px space)
-                lineWidth: 2, // Width of the grid lines
-                drawBorder: false, // Option to remove the axis border line
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              y: {
+                beginAtZero: true,
+                ticks: {
+                  stepSize: 200, // Set y-axis increments to 200
+                },
+                grid: {
+                  color: "transparent", // Change y-axis grid line color
+                  borderDash: [5, 5], // Make grid lines dashed (5px dash, 5px space)
+                  lineWidth: 2, // Width of the grid lines
+                  drawBorder: false, // Option to remove the axis border line
+                },
               },
-            },
-            x: {
-              grid: {
-                color: "transparent", // Change x-axis grid line color
-                borderDash: [5, 5], // Make grid lines dashed (5px dash, 5px space)
-                lineWidth: 2, // Width of the grid lines
-                drawBorder: true, // Option to remove the axis border line
+              x: {
+                ticks: {
+                  autoSkip: false, // Ensures no skipping
+                  maxRotation: 0, // Prevents rotation of labels
+                  minRotation: 0, // Keeps labels horizontal
+                },
+                grid: {
+                  color: "transparent", // Change x-axis grid line color
+                  borderDash: [5, 5], // Make grid lines dashed (5px dash, 5px space)
+                  lineWidth: 2, // Width of the grid lines
+                  drawBorder: true, // Option to remove the axis border line
+                },
               },
             },
           },
-        },
+        });
+      }
+
+      // Create the chart on page load
+      createOrUpdateChart();
+
+      // Update the chart when the window is resized
+      window.addEventListener("resize", () => {
+        createOrUpdateChart();
       });
     </script>
 

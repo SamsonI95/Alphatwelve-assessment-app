@@ -460,10 +460,12 @@ function displayMobileTable(rows, rowsPerPage, page) {
 
     rowElement.innerHTML = `
     <div class="mobile-table-style">
-      <div>
-        <i class="chevron-icon right-chevron"></i>
-      </div>
-      <td>${row.name}</td>
+      <td>
+        <div class="mobile-event-header">
+          <i class="chevron-icon right-chevron"><ion-icon name="chevron-forward-outline"></ion-icon></i>
+          <span>${row.name}</span>
+        </div>
+      </td>
       <td>
         <div class="status ${statusClass}">
           ${row.status}
@@ -475,7 +477,7 @@ function displayMobileTable(rows, rowsPerPage, page) {
     // Create the hidden content row (speaker and date)
     const contentRow = document.createElement("tr");
     contentRow.classList.add("accordion-content");
-    contentRow.style.display = "none"; // Initially hidden
+    contentRow.style.display = "none";
 
     contentRow.innerHTML = `
       <td colspan="3">
@@ -486,7 +488,7 @@ function displayMobileTable(rows, rowsPerPage, page) {
       </td>
     `;
 
-    // Append event listeners for dropdown functionality
+    // Event listeners for dropdown functionality
     rowElement.addEventListener("click", () => {
       const isVisible = contentRow.style.display === "table-row";
       contentRow.style.display = isVisible ? "none" : "table-row";
@@ -500,6 +502,18 @@ function displayMobileTable(rows, rowsPerPage, page) {
         chevron.classList.remove("right-chevron");
         chevron.classList.add("down-chevron");
       }
+
+      // Toggle active background color on accordion header
+      if (!isVisible) {
+        rowElement.classList.add("accordion-active");
+      } else {
+        rowElement.classList.remove("accordion-active");
+      }
+    });
+
+    // Event listener to open modal when accordion content is clicked
+    contentRow.addEventListener("click", () => {
+      openModal(row); // Pass the row data to the modal
     });
 
     // Append both the header and content rows to the mobile table body
